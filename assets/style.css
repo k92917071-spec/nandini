@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --bg1:#11001f; --bg2:#2b1055; --text:#fff7ff; --muted:#e4d4ff;
+  --pink:#ff7ad9; --gold:#ffd166; --cyan:#7df9ff; --glass:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; color:var(--text); font-family:Poppins,system-ui,sans-serif;
+  background: radial-gradient(circle at top left,#5b21b6 0,#2b1055 30%,#11001f 70%);
+  overflow-x:hidden;
+}
+#stars{position:fixed; inset:0; z-index:-2}
+.cursor-glow{
+  position:fixed; width:280px; height:280px; border-radius:50%; pointer-events:none; z-index:-1;
+  background:radial-gradient(circle, rgba(255,122,217,.25), transparent 65%);
+  transform:translate(-50%,-50%);
+}
+.app{width:min(1100px,92vw); margin:0 auto; padding:54px 0 28px}
+.card{
+  border:1px solid rgba(255,255,255,.18); border-radius:28px; padding:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
+  box-shadow:0 24px 70px rgba(0,0,0,.28); backdrop-filter: blur(16px);
+}
+.glass{position:relative; overflow:hidden}
+.glass:before{
+  content:""; position:absolute; inset:-1px; background:linear-gradient(120deg,transparent,rgba(255,255,255,.22),transparent);
+  transform:translateX(-120%); animation:shine 4s infinite;
+}
+@keyframes shine{50%,100%{transform:translateX(120%)}}
+.hero{text-align:center; padding:70px 28px; min-height:72vh; display:flex; flex-direction:column; justify-content:center; align-items:center}
+.badge{display:inline-flex; padding:9px 16px; border-radius:999px; background:rgba(255,255,255,.12); color:var(--muted); margin-bottom:18px}
+h1{font-family:'Great Vibes',cursive; font-size:clamp(4rem,13vw,9rem); margin:0; line-height:.95; text-shadow:0 0 34px rgba(255,122,217,.45)}
+h2{font-size:clamp(1.35rem,3vw,2.15rem); margin:0 0 14px}
+.subtitle{font-size:clamp(1rem,2.4vw,1.35rem); max-width:760px; color:var(--muted); line-height:1.8}
+button{border:0; cursor:pointer; font-weight:800; letter-spacing:.2px; transition:.25s ease; color:#210025}
+.primary,.secondary{
+  padding:15px 24px; border-radius:999px; background:linear-gradient(135deg,var(--gold),var(--pink));
+  box-shadow:0 14px 32px rgba(255,122,217,.25); margin-top:16px;
+}
+.secondary{background:linear-gradient(135deg,var(--cyan),var(--gold))}
+button:hover{transform:translateY(-4px) scale(1.02)}
+.tiny{opacity:.72; font-size:.88rem}
+.hidden{display:none}
+.grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin:28px 0}
+.grid .card{min-height:230px; transition:.25s}
+.grid .card:hover{transform:translateY(-8px)}
+.icon{font-size:2.4rem; display:block; margin-bottom:18px}
+p,li{color:var(--muted); line-height:1.8}
+.letter{margin:28px 0}
+.letter p{font-size:1.05rem}
+.signature{font-family:'Great Vibes',cursive; font-size:2.2rem!important; color:#fff}
+.timeline{margin:28px 0}
+.line{position:relative; display:grid; gap:18px; margin-top:18px}
+.line div{padding:18px 18px 18px 24px; border-left:3px solid var(--pink); background:rgba(255,255,255,.08); border-radius:18px}
+.line b{display:block; font-size:1.08rem; margin-bottom:6px}
+.line span{color:var(--muted)}
+.quote-box{text-align:center; margin:28px 0}
+#quote{font-size:1.25rem; color:#fff; min-height:80px; display:flex; align-items:center; justify-content:center}
+.wishes{margin:28px 0}
+.wishes li{margin:8px 0}
+footer{text-align:center; color:rgba(255,255,255,.65); padding:0 0 32px; font-size:.9rem}
+.floating-heart{
+  position:fixed; bottom:-40px; font-size:22px; pointer-events:none; animation:floatUp 5s linear forwards;
+}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg); opacity:0}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:48px 18px}.card{padding:22px}}
